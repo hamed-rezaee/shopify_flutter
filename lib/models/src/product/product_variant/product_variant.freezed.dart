@@ -36,6 +36,8 @@ mixin _$ProductVariant {
       throw _privateConstructorUsedError;
   PriceV2? get compareAtPrice => throw _privateConstructorUsedError;
   ShopifyImage? get image => throw _privateConstructorUsedError;
+  SellingPlanAllocation? get sellingPlanAllocation =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -63,13 +65,15 @@ abstract class $ProductVariantCopyWith<$Res> {
       UnitPriceMeasurement? unitPriceMeasurement,
       List<SelectedOption>? selectedOptions,
       PriceV2? compareAtPrice,
-      ShopifyImage? image});
+      ShopifyImage? image,
+      SellingPlanAllocation? sellingPlanAllocation});
 
   $PriceV2CopyWith<$Res> get price;
   $PriceV2CopyWith<$Res>? get unitPrice;
   $UnitPriceMeasurementCopyWith<$Res>? get unitPriceMeasurement;
   $PriceV2CopyWith<$Res>? get compareAtPrice;
   $ShopifyImageCopyWith<$Res>? get image;
+  $SellingPlanAllocationCopyWith<$Res>? get sellingPlanAllocation;
 }
 
 /// @nodoc
@@ -99,6 +103,7 @@ class _$ProductVariantCopyWithImpl<$Res, $Val extends ProductVariant>
     Object? selectedOptions = freezed,
     Object? compareAtPrice = freezed,
     Object? image = freezed,
+    Object? sellingPlanAllocation = freezed,
   }) {
     return _then(_value.copyWith(
       price: null == price
@@ -157,6 +162,10 @@ class _$ProductVariantCopyWithImpl<$Res, $Val extends ProductVariant>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as ShopifyImage?,
+      sellingPlanAllocation: freezed == sellingPlanAllocation
+          ? _value.sellingPlanAllocation
+          : sellingPlanAllocation // ignore: cast_nullable_to_non_nullable
+              as SellingPlanAllocation?,
     ) as $Val);
   }
 
@@ -216,6 +225,19 @@ class _$ProductVariantCopyWithImpl<$Res, $Val extends ProductVariant>
       return _then(_value.copyWith(image: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SellingPlanAllocationCopyWith<$Res>? get sellingPlanAllocation {
+    if (_value.sellingPlanAllocation == null) {
+      return null;
+    }
+
+    return $SellingPlanAllocationCopyWith<$Res>(_value.sellingPlanAllocation!,
+        (value) {
+      return _then(_value.copyWith(sellingPlanAllocation: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -240,7 +262,8 @@ abstract class _$$ProductVariantImplCopyWith<$Res>
       UnitPriceMeasurement? unitPriceMeasurement,
       List<SelectedOption>? selectedOptions,
       PriceV2? compareAtPrice,
-      ShopifyImage? image});
+      ShopifyImage? image,
+      SellingPlanAllocation? sellingPlanAllocation});
 
   @override
   $PriceV2CopyWith<$Res> get price;
@@ -252,6 +275,8 @@ abstract class _$$ProductVariantImplCopyWith<$Res>
   $PriceV2CopyWith<$Res>? get compareAtPrice;
   @override
   $ShopifyImageCopyWith<$Res>? get image;
+  @override
+  $SellingPlanAllocationCopyWith<$Res>? get sellingPlanAllocation;
 }
 
 /// @nodoc
@@ -279,6 +304,7 @@ class __$$ProductVariantImplCopyWithImpl<$Res>
     Object? selectedOptions = freezed,
     Object? compareAtPrice = freezed,
     Object? image = freezed,
+    Object? sellingPlanAllocation = freezed,
   }) {
     return _then(_$ProductVariantImpl(
       price: null == price
@@ -337,6 +363,10 @@ class __$$ProductVariantImplCopyWithImpl<$Res>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as ShopifyImage?,
+      sellingPlanAllocation: freezed == sellingPlanAllocation
+          ? _value.sellingPlanAllocation
+          : sellingPlanAllocation // ignore: cast_nullable_to_non_nullable
+              as SellingPlanAllocation?,
     ));
   }
 }
@@ -358,7 +388,8 @@ class _$ProductVariantImpl extends _ProductVariant {
       this.unitPriceMeasurement,
       final List<SelectedOption>? selectedOptions,
       this.compareAtPrice,
-      this.image})
+      this.image,
+      this.sellingPlanAllocation})
       : _selectedOptions = selectedOptions,
         super._();
 
@@ -401,10 +432,12 @@ class _$ProductVariantImpl extends _ProductVariant {
   final PriceV2? compareAtPrice;
   @override
   final ShopifyImage? image;
+  @override
+  final SellingPlanAllocation? sellingPlanAllocation;
 
   @override
   String toString() {
-    return 'ProductVariant(price: $price, title: $title, weight: $weight, weightUnit: $weightUnit, availableForSale: $availableForSale, sku: $sku, requiresShipping: $requiresShipping, id: $id, quantityAvailable: $quantityAvailable, unitPrice: $unitPrice, unitPriceMeasurement: $unitPriceMeasurement, selectedOptions: $selectedOptions, compareAtPrice: $compareAtPrice, image: $image)';
+    return 'ProductVariant(price: $price, title: $title, weight: $weight, weightUnit: $weightUnit, availableForSale: $availableForSale, sku: $sku, requiresShipping: $requiresShipping, id: $id, quantityAvailable: $quantityAvailable, unitPrice: $unitPrice, unitPriceMeasurement: $unitPriceMeasurement, selectedOptions: $selectedOptions, compareAtPrice: $compareAtPrice, image: $image, sellingPlanAllocation: $sellingPlanAllocation)';
   }
 
   @override
@@ -433,7 +466,9 @@ class _$ProductVariantImpl extends _ProductVariant {
                 .equals(other._selectedOptions, _selectedOptions) &&
             (identical(other.compareAtPrice, compareAtPrice) ||
                 other.compareAtPrice == compareAtPrice) &&
-            (identical(other.image, image) || other.image == image));
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.sellingPlanAllocation, sellingPlanAllocation) ||
+                other.sellingPlanAllocation == sellingPlanAllocation));
   }
 
   @JsonKey(ignore: true)
@@ -453,7 +488,8 @@ class _$ProductVariantImpl extends _ProductVariant {
       unitPriceMeasurement,
       const DeepCollectionEquality().hash(_selectedOptions),
       compareAtPrice,
-      image);
+      image,
+      sellingPlanAllocation);
 
   @JsonKey(ignore: true)
   @override
@@ -472,20 +508,22 @@ class _$ProductVariantImpl extends _ProductVariant {
 
 abstract class _ProductVariant extends ProductVariant {
   factory _ProductVariant(
-      {required final PriceV2 price,
-      required final String title,
-      required final double weight,
-      required final String weightUnit,
-      required final bool availableForSale,
-      required final String sku,
-      required final bool requiresShipping,
-      required final String id,
-      required final int quantityAvailable,
-      final PriceV2? unitPrice,
-      final UnitPriceMeasurement? unitPriceMeasurement,
-      final List<SelectedOption>? selectedOptions,
-      final PriceV2? compareAtPrice,
-      final ShopifyImage? image}) = _$ProductVariantImpl;
+          {required final PriceV2 price,
+          required final String title,
+          required final double weight,
+          required final String weightUnit,
+          required final bool availableForSale,
+          required final String sku,
+          required final bool requiresShipping,
+          required final String id,
+          required final int quantityAvailable,
+          final PriceV2? unitPrice,
+          final UnitPriceMeasurement? unitPriceMeasurement,
+          final List<SelectedOption>? selectedOptions,
+          final PriceV2? compareAtPrice,
+          final ShopifyImage? image,
+          final SellingPlanAllocation? sellingPlanAllocation}) =
+      _$ProductVariantImpl;
   _ProductVariant._() : super._();
 
   factory _ProductVariant.fromJson(Map<String, dynamic> json) =
@@ -519,6 +557,8 @@ abstract class _ProductVariant extends ProductVariant {
   PriceV2? get compareAtPrice;
   @override
   ShopifyImage? get image;
+  @override
+  SellingPlanAllocation? get sellingPlanAllocation;
   @override
   @JsonKey(ignore: true)
   _$$ProductVariantImplCopyWith<_$ProductVariantImpl> get copyWith =>

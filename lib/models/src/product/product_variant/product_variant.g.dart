@@ -33,6 +33,10 @@ _$ProductVariantImpl _$$ProductVariantImplFromJson(Map<String, dynamic> json) =>
       image: json['image'] == null
           ? null
           : ShopifyImage.fromJson(json['image'] as Map<String, dynamic>),
+      sellingPlanAllocation: json['sellingPlanAllocation'] == null
+          ? null
+          : SellingPlanAllocation.fromJson(
+              json['sellingPlanAllocation'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$ProductVariantImplToJson(
@@ -52,4 +56,5 @@ Map<String, dynamic> _$$ProductVariantImplToJson(
       'selectedOptions': instance.selectedOptions,
       'compareAtPrice': instance.compareAtPrice,
       'image': instance.image,
+      'sellingPlanAllocation': instance.sellingPlanAllocation,
     };

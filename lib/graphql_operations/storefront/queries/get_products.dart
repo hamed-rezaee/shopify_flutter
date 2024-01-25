@@ -41,6 +41,51 @@ query($cursor : String, $reverse: Boolean){
                 name
                 value
               }
+              sellingPlanAllocations(first: 10) {
+                edges {
+                  node {
+                    checkoutChargeAmount {
+                      amount
+                      currencyCode
+                    }
+                    remainingBalanceChargeAmount {
+                      amount
+                      currencyCode
+                    }
+                    priceAdjustments {
+                      compareAtPrice {
+                        amount
+                        currencyCode
+                      }
+                      perDeliveryPrice {
+                        amount
+                        currencyCode
+                      }
+                      price {
+                        amount
+                        currencyCode
+                      }
+                      unitPrice {
+                        amount
+                        currencyCode
+                      }
+                    }
+                    sellingPlan {
+                      checkoutCharge {
+                        type
+                      }
+                      description
+                      id
+                      name
+                      options {
+                        name
+                        value
+                      }
+                      recurringDeliveries
+                    }
+                  }
+                }
+              }
             }
           }
           pageInfo {

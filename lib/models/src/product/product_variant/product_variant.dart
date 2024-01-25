@@ -1,5 +1,6 @@
 import 'package:shopify_flutter/models/src/product/price_v_2/price_v_2.dart';
 import 'package:shopify_flutter/models/src/product/selected_option/selected_option.dart';
+import 'package:shopify_flutter/models/src/product/selling_plan_allocation/selling_plan_allocation.dart';
 import 'package:shopify_flutter/models/src/product/shopify_image/shopify_image.dart';
 import 'package:shopify_flutter/models/src/product/unit_price_measurement/unit_price_measurement.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -25,6 +26,7 @@ class ProductVariant with _$ProductVariant {
     List<SelectedOption>? selectedOptions,
     PriceV2? compareAtPrice,
     ShopifyImage? image,
+    SellingPlanAllocation? sellingPlanAllocation,
   }) = _ProductVariant;
 
   static ProductVariant fromGraphJson(Map<String, dynamic> json) {
@@ -53,6 +55,9 @@ class ProductVariant with _$ProductVariant {
           ? UnitPriceMeasurement.fromJson(nodeJson['unitPriceMeasurement'])
           : null,
       selectedOptions: _getOptionList((nodeJson)),
+      sellingPlanAllocation: nodeJson['sellingPlanAllocation'] != null
+          ? SellingPlanAllocation.fromJson(nodeJson['sellingPlanAllocation'])
+          : null,
     );
   }
 

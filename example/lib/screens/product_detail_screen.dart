@@ -22,7 +22,7 @@ class ProductDetailScreenState extends State<ProductDetailScreen> {
     product = widget.product;
     final jsonProduct = product.toJson();
     final productFromJson = Product.fromJson(jsonProduct);
-    log(productFromJson.toString());
+    log(productFromJson.productVariants.first.sellingPlanAllocation.toString());
     super.initState();
   }
 
